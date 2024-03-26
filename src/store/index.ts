@@ -6,7 +6,7 @@ export default createStore({
   },
   mutations: {
     updateIsCollapse(state:any) {
-      state.isCollapse = !state.IsCollapse;
+      state.isCollapse = !state.isCollapse;
     },
   },
 });
