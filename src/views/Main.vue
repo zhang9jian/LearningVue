@@ -1,25 +1,41 @@
 <template>
-    <div class="common-layout">
-        <el-container>
-            <el-aside width="200px">Aside</el-aside>
-            <el-container class="r-container">
-                <common-header/>
-                <el-main>
-                    <router-view />
-                </el-main>
-            </el-container>
-        </el-container>
-    </div>
+  <div class="common-layout">
+    <el-container>
+        <el-aside width="auto">
+            <common-asider />
+        </el-aside>
+
+      <el-container class="el-container">
+        <common-header />
+        <el-main>
+          <router-view />
+        </el-main>
+      </el-container>
+    </el-container>
+  </div>
 </template>
 <script setup lang="ts">
-import CommonHeader from '../components/CommonHeader.vue';
-
+import CommonHeader from "../components/CommonHeader.vue";
+import CommonAsider from "../components/CommonAsider.vue";
 </script>
-<style scoped>
+<style lang="less" scoped>
 .el-header {
-    padding: 0
+  padding: 0;
+} 
+
+.el-container {
+  flex-wrap: wrap; /*强制换行 */
+  align-items:flex-start;
+ 
 }
-.r-container{
-    flex-wrap: wrap;
+.common-layout {
+  height: 100%;
+  & > .el-container {
+    height: 100%;
+    & > .el-aside {
+      height: 100%;
+      background-color: #545c64;
+    }
+  }
 }
 </style>

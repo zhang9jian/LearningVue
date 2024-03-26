@@ -1,11 +1,12 @@
 <template>
     <el-header>
         <div class="l-content">
-            <el-button size="small">
+            <el-button size="small" plain>
                 <el-icon :size="18">
                     <Menu />
                 </el-icon>
             </el-button>
+            <h3>首页</h3>
         </div>
         <div class="r-content">
             <el-dropdown>
@@ -33,8 +34,18 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    background-color:#333
 }
-
+.l-content{
+    display:flex;
+    align-items:center;
+    .el-button{
+        margin-right:20px;
+    }
+    h3{
+        color:#fff
+    }
+}
 .r-content {
     .user {
         width: 35px;
