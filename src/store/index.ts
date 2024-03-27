@@ -1,12 +1,15 @@
-import { createStore } from 'vuex'//修改tsconfig文件解决飘红找不到模块
+import { defineStore } from 'pinia'
 
-export default createStore({
-  state: {
-    isCollapse: true,
-  },
-  mutations: {
-    updateIsCollapse(state:any) {
-      state.isCollapse = !state.isCollapse;
-    },
-  },
+export const useCollapseStore = defineStore('collapse',{
+  state() {
+    return{
+      isCollapse:true
+    }
+},
+actions:{
+  updateCollapse(){
+      this.isCollapse = !this.isCollapse
+  }
+},
 });
+

@@ -24,14 +24,14 @@
     </el-header>
 </template>
 <script setup lang="ts">
-import {useStore} from 'vuex'
-let store = useStore()
+import {useCollapseStore} from '../store'
+let collapseStore = useCollapseStore()
 const getImgSrc = (user:string) => {
     return new URL(`../assets/images/${user}.png`, import.meta.url).href
 }
 let handleCollapse = ()=>{
     //调用mutations：
-    store.commit("updateIsCollapse")
+    collapseStore.updateCollapse()
 }
 </script>
 <style>
@@ -46,7 +46,8 @@ header {
     display:flex;
     align-items:center;
     .el-button{
-        margin-right:20px;
+        margin-right:10px;
+        margin-left: 10px;
     }
     h3{
         color:#fff

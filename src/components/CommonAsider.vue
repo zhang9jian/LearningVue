@@ -1,16 +1,20 @@
 <template>
-  <el-aside :width="!$store.state.isCollapse?'180px':'64px'">
+  <el-aside :width="!collapseStore.isCollapse?'180px':'64px'">
     <el-menu
       class="el-menu-vertical-demo"
       background-color="#545c64"
       text-color="#fff"
-      :collapse="$store.state.isCollapse"
+      :collapse="collapseStore.isCollapse"
       :collapse-transition="false" 
     >
+    <h3 v-show = "collapseStore.isCollapse">后台</h3>
+    <h3 v-show = "!collapseStore.isCollapse">后台管理</h3>
+    
       <el-menu-item
         :index="item.path"
         v-for="item in noChildren()"
         :key="item.path"
+        @click="clickMenu(item)"
       >
         <component class="icons" :is="item.icon"></component>
         <span>{{ item.label }}</span>
@@ -30,6 +34,7 @@
             :index="subItem.path"
             v-for="(subItem, subIndex) in item.children"
             :key="subIndex"
+            @click="clickMenu(subItem)"
           >
             <component class="icons" :is="subItem.icon"></component>
             <span>{{ subItem.label }}</span>
@@ -40,6 +45,10 @@
   </el-aside>
 </template>
 <script setup lang="ts">
+import {useCollapseStore} from '../store'
+import {useRouter} from 'vue-router'
+let collapseStore = useCollapseStore()
+const router =  useRouter()
 const list = [
   {
     path: "/user",
@@ -77,6 +86,11 @@ const noChildren = () => {
 const hasChildren = () => {
   return list.filter((item) => item.children);
 };
+
+const clickMenu = (item:any)=>{
+  router.push({name:item.name})
+}
+
 </script>
 <style scoped>
 .icons {
@@ -85,5 +99,10 @@ const hasChildren = () => {
 }
 .el-menu {
   border-right: none;
+  h3{
+    line-height:48px;
+    color:#ffff;
+    text-align:center;
+  }
 }
 </style>
