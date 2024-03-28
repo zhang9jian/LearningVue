@@ -1,6 +1,6 @@
 <template>
   <div class="common-layout">
-    <el-container>
+    <el-container class="lay-container">
         <el-aside width="auto">
             <common-asider />
         </el-aside>
@@ -24,11 +24,14 @@ import CommonAsider from "../components/CommonAsider.vue";
 } 
 
 .el-container {
-  flex-wrap: wrap; /*强制换行 */
+ flex-wrap: wrap; /*强制换行 */
   align-items:flex-start;
  
 }
 .common-layout {
+  .lay-container{
+    flex-wrap:nowrap;
+  }
   height: 100%;
   & > .el-container {
     height: 100%;

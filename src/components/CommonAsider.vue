@@ -1,5 +1,5 @@
 <template>
-  <el-aside :width="!collapseStore.isCollapse?'180px':'64px'">
+  <el-aside :width="!collapseStore.isCollapse?'115px':'50x'">
     <el-menu
       class="el-menu-vertical-demo"
       background-color="#545c64"
@@ -94,13 +94,13 @@ const clickMenu = (item:any)=>{
 </script>
 <style scoped>
 .icons {
-  width: 18px;
-  height: 18px;
+  width: 80px;
+  height: 80px;
 }
 .el-menu {
   border-right: none;
   h3{
-    line-height:48px;
+    line-height:40px;
     color:#ffff;
     text-align:center;
   }
