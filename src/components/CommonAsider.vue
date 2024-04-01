@@ -67,14 +67,14 @@ const list = [
         name: "page1",
         label: "页面1",
         icon: "setting",
-        url: "Other/PageOne",
+        url: "Other/Page1",
       },
       {
         path: "/page2",
         name: "page2",
         label: "页面2",
         icon: "setting",
-        url: "Other/PageTwo",
+        url: "Other/Page2",
       },
     ],
   },
@@ -88,7 +88,9 @@ const hasChildren = () => {
 };
 
 const clickMenu = (item:any)=>{
-  router.push({name:item.name})
+  router.push({name:item.name});
+  console.log('item',item);
+  collapseStore.selectMenu(item);
 }
 
 </script>

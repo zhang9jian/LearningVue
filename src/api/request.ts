@@ -7,11 +7,13 @@ const service = axios.create({
 });
 //请求前处理
 service.interceptors.request.use((req) => {
+  console.log('before config.env is : ',config.env)
   return req;
 });
 //请求后处理
 service.interceptors.response.use((res) => {
-  console.log(res.data)
+  console.log('baseUrl is :',config.baseApi, ' env is ',config.env)
+  console.log('after config.env is : ',config.env)
   const { code, data, msg } = res.data;
   if (code == 200) {
     return data
@@ -20,7 +22,7 @@ service.interceptors.response.use((res) => {
   }
   return Promise.reject(msg||NET_ERROR)
 });
-//核心处理程序
+// //核心处理程序
 function request(options:any){
     options.method = options.method || 'get'
     if (options.method.toLowerCase() == 'get'){
@@ -30,10 +32,11 @@ function request(options:any){
     if (typeof options.mock != 'undefined'){
         isMock = options.mock
     }
-    if (config.env === 'prod'){
-        service.defaults.baseURL = config.baseApi
+    console.log('config.env is : ',config.env)
+    if (config.env == 'prod'){
+       service.defaults.baseURL = config.baseApi
     }else{
-        service.defaults.baseURL = isMock ? config.mockApi : config.baseApi
+       service.defaults.baseURL = isMock ? config.mockApi : config.baseApi
     }
 
     return service(options)

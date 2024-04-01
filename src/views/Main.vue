@@ -7,7 +7,8 @@
 
       <el-container class="el-container">
         <common-header />
-        <el-main>
+        <common-tab/>
+        <el-main class="right-main">
           <router-view />
         </el-main>
       </el-container>
@@ -17,6 +18,7 @@
 <script setup lang="ts">
 import CommonHeader from "../components/CommonHeader.vue";
 import CommonAsider from "../components/CommonAsider.vue";
+import CommonTab from "../components/CommonTab.vue";
 </script>
 <style lang="less" scoped>
 .el-header {
@@ -26,11 +28,15 @@ import CommonAsider from "../components/CommonAsider.vue";
 .el-container {
  flex-wrap: wrap; /*强制换行 */
   align-items:flex-start;
+  height: 100%;
  
 }
 .common-layout {
   .lay-container{
     flex-wrap:nowrap;
+    .right-main{
+      height: calc(100%-124px);
+    }
   }
   height: 100%;
   & > .el-container {

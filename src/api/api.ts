@@ -22,5 +22,13 @@ export default {
             method:'get',
             mock:true,
         })
+    },
+    getUserData(params){
+        return request({ 
+            url:'/home/getUserList',
+            method:'post',
+            mock:true,
+            data:params,
+        })
     } 
 }

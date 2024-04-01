@@ -1,16 +1,16 @@
-const env = import.meta.env.MODE|| 'prod';  
+const env =  'prod';  
   
 const envConfig= {  
     dev: {  
-        baseApi: '/api',  
+        baseApi: '/',  
         mockApi: '/home/getData'  
     },  
     prod: {  
-        baseApi: '/api',  
+        baseApi: '/',  
         mockApi: '/home/getData'  
     },  
     test: {  
-        baseApi: '/api',  
+        baseApi: '/',  
         mockApi: '/home/getData'  
     }  
 };  
