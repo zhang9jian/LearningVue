@@ -45,7 +45,7 @@ const current = computed(() => {
   return collapseStore.currentMenu;
 });
 </script>
-<style>
+<style scoped>
 header {
   display: flex;
   justify-content: space-between;

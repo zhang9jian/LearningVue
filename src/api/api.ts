@@ -26,9 +26,17 @@ export default {
     getUserData(params){
         return request({ 
             url:'/home/getUserList',
+            method:'get',
+            mock:true,
+            data:params,
+        })
+    },
+    createUser(params){
+        return request({ 
+            url:'/home/createUser',
             method:'post',
             mock:true,
             data:params,
         })
-    } 
+    },
 }
